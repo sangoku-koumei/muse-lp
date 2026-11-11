@@ -42,6 +42,27 @@
       border: 0;
     }
 
+    .actions {
+      width: min(100%, 1672px);
+      margin: 0 auto;
+      padding: clamp(28px, 4vw, 64px) 20px;
+      text-align: center;
+      background: #fbf4eb;
+    }
+
+    .actions h2 { margin: 0 0 12px; font-size: clamp(1.3rem, 3vw, 2.1rem); }
+    .actions p { max-width: 48rem; margin: 0 auto 20px; line-height: 1.8; }
+    .action-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .action-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 52px; padding: 14px 26px; border: 0; border-radius: 999px;
+      background: #e77960; color: #fff; font: inherit; font-weight: 700;
+    }
+    .action-button[disabled] { cursor: not-allowed; opacity: .7; }
+    .action-button--line { background: #39845f; }
+    .action-button--secondary { background: #365a78; }
+    .actions .note { margin: 16px auto 0; font-size: .88rem; color: #485b6d; }
+
     @media (max-width: 700px) {
       .lp-section img {
         width: 100%;
@@ -57,11 +78,22 @@
 <body>
   <main aria-label="Muse LP">
     <section class="lp-section"><img src="generated/sections/section-01-hero-ai-beginners.png" alt="まだMuseをダウンロードしていない方へ。あなた専用のAI作業環境を、無料で使い始める。" fetchpriority="high"></section>
+    <section class="lp-section"><img src="generated/sections/section-token-bonus.png" alt="紹介コードの入力で10億Museトークン。対象条件を満たすと、あなたと紹介者の双方に付与されます。" loading="lazy"></section>
+    <section class="actions" aria-labelledby="start-title">
+      <h2 id="start-title">まずはMuseを始めてみる</h2>
+      <p>まず紹介コードを確認し、Museの登録後に設定画面から入力しましょう。</p>
+      <div class="action-list">
+        <button class="action-button action-button--secondary" type="button" data-action="code" aria-expanded="false" disabled>紹介コードを見る</button>
+        <button class="action-button" type="button" data-action="muse" disabled>Museをダウンロードする</button>
+      </div>
+      <p class="note" data-code-output hidden></p>
+      <p class="note">紹介特典は対象条件を満たす場合に適用されます。最新の条件と入力期限はMuseの案内をご確認ください。</p>
+    </section>
     <section class="lp-section"><img src="generated/sections/section-02-not-just-answers.png" alt="AIを使ってみたい。でも、何から始めればいいか分からない。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-03-consult-to-delegate.png" alt="AIに相談する。から、AIに作業を任せるへ。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-04-muse-not-just-answers.png" alt="Museは、答えを返すだけのAIではありません。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-05-beginner-friction.png" alt="初心者がつまずくのは、文章が書けないことだけではありません。" loading="lazy"></section>
-    <section class="lp-section"><img src="generated/sections/section-06-missing-framework.png" alt="AI初心者がMuseを使いこなせない原因は、才能ではなく型がないこと。" loading="lazy"></section>
+    <section class="lp-section"><img src="generated/sections/section-06-framework-v2.png" alt="AIを使い始めるときに必要なのは、型です。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-07-build-the-environment.png" alt="あなた専用のクラウドコンピューターが、無料で使える。Muse Secure VMの観測スペックと仕組み。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-08-gifts-intro.png" alt="今回のプレゼントで受け取れるもの。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-09-gift-execution-prompt.png" alt="MuseのAI思考を実行モードへ近づけるプロンプト。" loading="lazy"></section>
@@ -72,7 +104,7 @@
     <section class="lp-section"><img src="generated/sections/section-14-post-package.png" alt="ネタを、公開できる投稿パッケージへ。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-15-official-line-intro.png" alt="公式LINEの中身も、Museに考えてもらえる。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-16-line-eight-steps.png" alt="開設から初期設定までを、8ステップで。" loading="lazy"></section>
-    <section class="lp-section"><img src="generated/sections/section-17-line-variations.png" alt="あいさつ文を3パターン。リッチメニューを6枠。" loading="lazy"></section>
+    <section class="lp-section"><img src="generated/sections/section-17-line-variations-v2.png" alt="あいさつ文を3パターン。親しみを伝える、特典しっかり訴求、相談につなげるなどの例と、リッチメニュー6枠。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-18-line-preview.png" alt="登録直後のトーク画面をスマホ風にプレビュー。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-19-reusable-value.png" alt="価格以上に残るのは、完成物ではなく作り方です。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-20-thinking-to-doing.png" alt="考え込む時間が、手を動かす時間に変わります。" loading="lazy"></section>
@@ -82,7 +114,48 @@
     <section class="lp-section"><img src="generated/sections/section-24-additional-materials.png" alt="追加資料は、1つ500円。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-25-application-flow.png" alt="申し込み・受け取りの流れ。" loading="lazy"></section>
     <section class="lp-section"><img src="generated/sections/section-26-faq-beginner.png" alt="AI初心者でも使えますか？" loading="lazy"></section>
-    <section class="lp-section"><img src="generated/sections/section-27-final-cta.png" alt="まずはMuseを手に入れて、1つ作ってみてください。Museをダウンロードする。" loading="lazy"></section>
+    <section class="lp-section"><img src="generated/sections/section-27-final-v2.png" alt="まずはMuseを手に入れて、1つ作ってみてください。" loading="lazy"></section>
+    <section class="lp-section"><img src="generated/sections/section-line-pdf-code.png" alt="紹介コードを確認してMuseを始めよう。特典PDFは公式LINEからダウンロード。対象条件を満たすと10億Museトークンが付与されます。" loading="lazy"></section>
+    <section class="actions" aria-labelledby="receive-title">
+      <h2 id="receive-title">Museを始めて、特典を受け取る</h2>
+      <p>紹介コードを確認してMuseに登録。特典PDFは公式LINEからダウンロードできます。</p>
+      <div class="action-list">
+        <button class="action-button action-button--secondary" type="button" data-action="code" aria-expanded="false" disabled>紹介コードを見る</button>
+        <button class="action-button" type="button" data-action="muse" disabled>Museをダウンロードする</button>
+        <button class="action-button action-button--line" type="button" data-action="line" disabled>公式LINEに登録して特典を受け取る</button>
+      </div>
+      <p class="note" data-code-output hidden></p>
+      <p class="note">トークン付与と資料の特典にはそれぞれ条件があります。</p>
+    </section>
   </main>
+  <script>
+    (() => {
+      // ここに公開用のURLと紹介コードを入力してください。空欄のボタンは無効になります。
+      const config = {
+        museUrl: '',      // 例：https://...（Muse登録URL）
+        referralCode: '', // 紹介コード
+        lineUrl: ''       // 例：https://...（公式LINE登録URL）
+      };
+      document.querySelectorAll('[data-action]').forEach((button) => {
+        const action = button.dataset.action;
+        const value = action === 'muse' ? config.museUrl : action === 'line' ? config.lineUrl : config.referralCode;
+        if (typeof value !== 'string' || !value.trim()) return;
+        if (action !== 'code') {
+          try { if (new URL(value).protocol !== 'https:') return; } catch { return; }
+        }
+        button.disabled = false;
+        button.addEventListener('click', () => {
+          if (action === 'code') {
+            const output = button.closest('.actions').querySelector('[data-code-output]');
+            output.textContent = '紹介コード：' + value;
+            output.hidden = false;
+            button.setAttribute('aria-expanded', 'true');
+          } else {
+            window.location.href = value;
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
